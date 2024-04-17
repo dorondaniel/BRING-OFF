@@ -1,19 +1,25 @@
 buildscript {
+    ext {
+        agp_version = '8.1.4'
+        agp_version1 = '7.0.0'
+        agp_version2 = '8.1.4'
+    }
     repositories {
         google()
-        jcenter()
+        mavenCentral()
+        maven { url "https://chaquo.com/maven" }
         
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.5.0'
+        classpath "com.android.tools.build:gradle:$agp_version2"
+        classpath "com.chaquo.python:gradle:15.0.1"
     }
 }
 
 allprojects {
     repositories {
         google()
-        jcenter()
-        
+        mavenCentral()
     }
 }
 
