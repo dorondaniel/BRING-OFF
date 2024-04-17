@@ -3,6 +3,8 @@ package com.neave.mobilenet.vision;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.chaquo.python.Python;
+import com.chaquo.python.android.AndroidPlatform;
 import com.neave.mobilenet.AbstractListActivity;
 import com.neave.mobilenet.InfoViewFactory;
 import com.neave.mobilenet.R;
@@ -12,7 +14,11 @@ public class VisionListActivity extends AbstractListActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (! Python.isStarted()) {
+            Python.start(new AndroidPlatform(this));
+        }
         findViewById(R.id.vision_card_preview_click_area).setOnClickListener(v -> {
+
             final Intent intent = new Intent(VisionListActivity.this, ImageClassificationActivity.class);
             intent.putExtra(ImageClassificationActivity.INTENT_MODULE_ASSET_NAME,
                     "mobilenet_v2.pt");
