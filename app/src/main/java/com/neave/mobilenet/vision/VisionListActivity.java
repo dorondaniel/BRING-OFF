@@ -51,7 +51,7 @@ public class VisionListActivity extends AbstractListActivity {
             PyObject pymod = pyIn.getModule("gbclassifier");
 
             PyObject mod = pymod.get("prediction");
-            PyObject val = mod.call(array);
+            PyObject val = mod.call(cpu_per,ram_per,bt,dbm);
 
             res = val.toInt();
 
@@ -69,7 +69,7 @@ public class VisionListActivity extends AbstractListActivity {
             PyObject pymod = pyIn.getModule("gbclassifier");
 
             PyObject mod = pymod.get("prediction");
-            PyObject val = mod.call(array);
+            PyObject val = mod.call(cpu_per,ram_per,bt,dbm);
 
             res = val.toInt();
 
