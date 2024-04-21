@@ -57,4 +57,9 @@ chaquopy {
     defaultConfig {
         buildPython("C:/Program Files/Python311/python.exe")
     }
+    sourceSets {
+        getByName("main") {
+            srcDir("src/main/python")
+        }
+    }
 }
