@@ -25,26 +25,27 @@ public class VisionListActivity extends AbstractListActivity {
         bt = Params.getBatteryLevel(this);
         dbm = Params.getWifiSignalStrength(this);
 
-
         findViewById(R.id.vision_card_preview_click_area).setOnClickListener(v -> {
             Python pyIn = Python.getInstance();
             PyObject pymod = pyIn.getModule("gbclassifier");
-
             PyObject mod = pymod.get("prediction");
             PyObject val = mod.call(cpu_per,ram_per,bt,dbm);
 
             res = val.toInt();
 
             if(res == 1){
-                Intent intent = new Intent(VisionListActivity.this, OffloadingActivity.class);
+                Intent ointent = new Intent(VisionListActivity.this, OffloadingActivity.class);
+                ointent.putExtra(OffloadingActivity.flag,"1");
+                startActivity(ointent);
             }
-
-            final Intent intent = new Intent(VisionListActivity.this, ImageClassificationActivity.class);
-            intent.putExtra(ImageClassificationActivity.INTENT_MODULE_ASSET_NAME,
-                    "mobilenet_v2.pt");
-            intent.putExtra(ImageClassificationActivity.INTENT_INFO_VIEW_TYPE,
-                    InfoViewFactory.INFO_VIEW_TYPE_IMAGE_CLASSIFICATION_QMOBILENET);
-            startActivity(intent);
+            else {
+                final Intent intent = new Intent(VisionListActivity.this, ImageClassificationActivity.class);
+                intent.putExtra(ImageClassificationActivity.INTENT_MODULE_ASSET_NAME,
+                        "mobilenet_v2.pt");
+                intent.putExtra(ImageClassificationActivity.INTENT_INFO_VIEW_TYPE,
+                        InfoViewFactory.INFO_VIEW_TYPE_IMAGE_CLASSIFICATION_QMOBILENET);
+                startActivity(intent);
+            }
         });
         findViewById(R.id.vision_card_capture_click_area).setOnClickListener(v -> {
             Python pyIn = Python.getInstance();
@@ -56,13 +57,17 @@ public class VisionListActivity extends AbstractListActivity {
             res = val.toInt();
 
             if(res == 1){
-                Intent intent = new Intent(VisionListActivity.this, OffloadingActivity.class);
+                Intent ointent = new Intent(VisionListActivity.this, OffloadingActivity.class);
+                ointent.putExtra(OffloadingActivity.flag,"2");
+                startActivity(ointent);
             }
-            final Intent intent = new Intent(VisionListActivity.this, CaptureActivity.class);
-            intent.putExtra(ImageClassificationActivity.INTENT_MODULE_ASSET_NAME, "mobilenet_v2.pt");
-            intent.putExtra(ImageClassificationActivity.INTENT_INFO_VIEW_TYPE,
-                    InfoViewFactory.INFO_VIEW_TYPE_IMAGE_CLASSIFICATION_QMOBILENET);
-            startActivity(intent);
+            else {
+                final Intent intent = new Intent(VisionListActivity.this, CaptureActivity.class);
+                intent.putExtra(ImageClassificationActivity.INTENT_MODULE_ASSET_NAME, "mobilenet_v2.pt");
+                intent.putExtra(ImageClassificationActivity.INTENT_INFO_VIEW_TYPE,
+                        InfoViewFactory.INFO_VIEW_TYPE_IMAGE_CLASSIFICATION_QMOBILENET);
+                startActivity(intent);
+            }
         });
         findViewById(R.id.vision_card_load_click_area).setOnClickListener(v -> {
             Python pyIn = Python.getInstance();
@@ -74,14 +79,17 @@ public class VisionListActivity extends AbstractListActivity {
             res = val.toInt();
 
             if(res == 1){
-                Intent intent = new Intent(VisionListActivity.this, OffloadingActivity.class);
+                Intent ointent = new Intent(VisionListActivity.this, OffloadingActivity.class);
+                ointent.putExtra(OffloadingActivity.flag,"3");
+                startActivity(ointent);
             }
-
-            final Intent intent = new Intent(VisionListActivity.this, LoadActivity.class);
-            intent.putExtra(ImageClassificationActivity.INTENT_MODULE_ASSET_NAME, "mobilenet_v2.pt");
-            intent.putExtra(ImageClassificationActivity.INTENT_INFO_VIEW_TYPE,
-                    InfoViewFactory.INFO_VIEW_TYPE_IMAGE_CLASSIFICATION_QMOBILENET);
-            startActivity(intent);
+            else {
+                final Intent intent = new Intent(VisionListActivity.this, LoadActivity.class);
+                intent.putExtra(ImageClassificationActivity.INTENT_MODULE_ASSET_NAME, "mobilenet_v2.pt");
+                intent.putExtra(ImageClassificationActivity.INTENT_INFO_VIEW_TYPE,
+                        InfoViewFactory.INFO_VIEW_TYPE_IMAGE_CLASSIFICATION_QMOBILENET);
+                startActivity(intent);
+            }
         });
 
     }

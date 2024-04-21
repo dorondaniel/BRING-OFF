@@ -140,7 +140,7 @@ public class LoadActivity extends AppCompatActivity {
             // compare the resultCode with the
             // SELECT_PICTURE constant
             if (requestCode == SELECT_PICTURE) {
-                // Get the url of the image from data
+                // Get the uri of the image from data
                 Uri selectedImageUri = data.getData();
                 if (null != selectedImageUri) {
                     // update the preview image in the layout
