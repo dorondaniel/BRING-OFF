@@ -17,7 +17,7 @@ import java.util.Random;
 public class Params {
     // Get CPU
     public static int CPUper(){
-        int min = 34;
+        int min = 70;
         int max = 99;
         Random rnd = new Random();
         return (rnd.nextInt(max - min + 1) + min);
@@ -36,7 +36,7 @@ public class Params {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return (int)ramUsage * 100;
+        return ((int)(ramUsage * 100));
     }
 
     // Get battery level

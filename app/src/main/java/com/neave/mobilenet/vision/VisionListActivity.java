@@ -2,6 +2,7 @@ package com.neave.mobilenet.vision;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 
 import com.chaquo.python.*;
 import com.chaquo.python.Python;
@@ -24,6 +25,11 @@ public class VisionListActivity extends AbstractListActivity {
         ram_per = Params.getRamUsage(this);
         bt = Params.getBatteryLevel(this);
         dbm = Params.getWifiSignalStrength(this);
+
+        Log.d("Cpu",String.valueOf(cpu_per));
+        Log.d("Ram",String.valueOf(ram_per));
+        Log.d("Bt",String.valueOf(bt));
+        Log.d("dbm",String.valueOf(dbm));
 
         findViewById(R.id.vision_card_preview_click_area).setOnClickListener(v -> {
             Python pyIn = Python.getInstance();
