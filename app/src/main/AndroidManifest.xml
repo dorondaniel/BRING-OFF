@@ -9,6 +9,7 @@
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.QUERY_STATS" />
 
     <application
         android:allowBackup="true"
@@ -36,6 +37,8 @@
         <activity
             android:name=".vision.ImageClassificationActivity"
             android:label="@string/live_image_classification_title" />
+        <activity android:name=".vision.OffloadingActivity"
+            android:label="Offloadind Activity"/>
     </application>
 
 </manifest>
