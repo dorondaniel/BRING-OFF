@@ -49,6 +49,9 @@ dependencies {
 
     implementation 'org.pytorch:pytorch_android:1.6.0-SNAPSHOT'
     implementation 'org.pytorch:pytorch_android_torchvision:1.6.0-SNAPSHOT'
+
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
 }
 chaquopy {
     productFlavors {
