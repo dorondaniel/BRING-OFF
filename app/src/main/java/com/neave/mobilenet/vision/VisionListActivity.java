@@ -82,7 +82,7 @@ public class VisionListActivity extends AbstractListActivity {
             PyObject mod = pymod.get("prediction");
             PyObject val = mod.call(cpu_per,ram_per,bt,dbm);
 
-            res = 1;
+            res = val.toInt();
 
             if(res == 1){
                 Intent ointent = new Intent(VisionListActivity.this, OffloadingActivity.class);

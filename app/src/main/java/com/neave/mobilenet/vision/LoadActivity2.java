@@ -108,7 +108,7 @@ public class LoadActivity2 extends AppCompatActivity {
             @Override
             public void onFailure(@NonNull Call<UploadResponse> call, @NonNull Throwable t) {
                 Log.d("Ermsg",t.getMessage());
-                Toast.makeText(LoadActivity2.this, "Error uploading image: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(LoadActivity2.this, "Error uploading image: " + t.getMessage(), Toast.LENGTH_LONG).show();
             }
         });
     }

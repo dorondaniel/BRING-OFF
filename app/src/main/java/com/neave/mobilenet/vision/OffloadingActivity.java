@@ -43,9 +43,6 @@ public class OffloadingActivity extends AppCompatActivity {
                 }
                 case "3": {
                     final Intent intent = new Intent(OffloadingActivity.this, LoadActivity2.class);
-                    //intent.putExtra(ImageClassificationActivity.INTENT_MODULE_ASSET_NAME, "mobilenet_v2.pt");
-                    //intent.putExtra(ImageClassificationActivity.INTENT_INFO_VIEW_TYPE,
-                            //InfoViewFactory.INFO_VIEW_TYPE_IMAGE_CLASSIFICATION_QMOBILENET);
                     startActivity(intent);
                     break;
                 }
