@@ -9,6 +9,7 @@ import android.provider.MediaStore;
 import android.util.Log;
 import android.widget.ImageView;
 import android.widget.Toast;
+import android.window.OnBackInvokedDispatcher;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -111,5 +112,11 @@ public class LoadActivity2 extends AppCompatActivity {
                 Toast.makeText(LoadActivity2.this, "Error uploading image: " + t.getMessage(), Toast.LENGTH_LONG).show();
             }
         });
+    }
+
+    @NonNull
+    @Override
+    public OnBackInvokedDispatcher getOnBackInvokedDispatcher() {
+        return super.getOnBackInvokedDispatcher();
     }
 }

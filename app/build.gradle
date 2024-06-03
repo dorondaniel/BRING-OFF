@@ -21,7 +21,7 @@ android {
     compileSdkVersion 34
     defaultConfig {
         applicationId "com.neave.mobilenet"
-        minSdkVersion 21
+        minSdkVersion 24
         targetSdkVersion 32
         versionCode 1
         versionName "1.0"
@@ -30,6 +30,7 @@ android {
         ndk {
             abiFilters "armeabi-v7a", "arm64-v8a", "x86", "x86_64"
         }
+
     }
     buildTypes {
         release {
@@ -65,4 +66,5 @@ chaquopy {
             srcDir("src/main/python")
         }
     }
+
 }

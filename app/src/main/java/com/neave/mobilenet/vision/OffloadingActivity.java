@@ -3,7 +3,9 @@ package com.neave.mobilenet.vision;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
+import android.window.OnBackInvokedDispatcher;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -48,5 +50,11 @@ public class OffloadingActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    @NonNull
+    @Override
+    public OnBackInvokedDispatcher getOnBackInvokedDispatcher() {
+        return super.getOnBackInvokedDispatcher();
     }
 }

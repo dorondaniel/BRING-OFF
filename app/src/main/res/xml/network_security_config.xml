@@ -4,5 +4,6 @@
         <!-- add new ip -->
         <domain includeSubdomains="true">192.168.29.200</domain>
         <domain includeSubdomains="true">10.10.0.78</domain>
+        <domain includeSubdomains="true">192.168.126.215</domain>
     </domain-config>
 </network-security-config>

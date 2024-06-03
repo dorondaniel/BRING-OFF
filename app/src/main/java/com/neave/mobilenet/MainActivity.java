@@ -18,8 +18,6 @@ public class MainActivity extends AppCompatActivity {
     setContentView(R.layout.activity_main);
     Handler handler = new Handler();
 
-
-
     findViewById(R.id.main_vision_click_view).setOnClickListener(v -> moveFromSplash());
     // OR
     handler.postDelayed(new Runnable() {

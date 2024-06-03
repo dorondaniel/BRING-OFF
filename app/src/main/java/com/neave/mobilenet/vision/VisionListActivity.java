@@ -2,9 +2,6 @@ package com.neave.mobilenet.vision;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
-
-import com.chaquo.python.*;
 import com.chaquo.python.Python;
 import com.chaquo.python.android.AndroidPlatform;
 import com.neave.mobilenet.AbstractListActivity;
@@ -14,6 +11,7 @@ import com.neave.mobilenet.R;
 public class VisionListActivity extends AbstractListActivity {
     int cpu_per,ram_per,bt,dbm;
     int res;
+    GradientBoosting predictor = new GradientBoosting(0.9, 6);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,24 +19,9 @@ public class VisionListActivity extends AbstractListActivity {
         if (! Python.isStarted()) {
             Python.start(new AndroidPlatform(this));
         }
-        cpu_per = Params.CPUper();
-        ram_per = Params.getRamUsage(this);
-        bt = Params.getBatteryLevel(this);
-        dbm = Params.getWifiSignalStrength(this);
-
-        Log.d("Cpu",String.valueOf(cpu_per));
-        Log.d("Ram",String.valueOf(ram_per));
-        Log.d("Bt",String.valueOf(bt));
-        Log.d("dbm",String.valueOf(dbm));
 
         findViewById(R.id.vision_card_preview_click_area).setOnClickListener(v -> {
-            Python pyIn = Python.getInstance();
-            PyObject pymod = pyIn.getModule("gbclassifier");
-            PyObject mod = pymod.get("prediction");
-            PyObject val = mod.call(cpu_per,ram_per,bt,dbm);
-
-            res = val.toInt();
-
+            res = predictor.GradBoost(this);
             if(res == 1){
                 Intent ointent = new Intent(VisionListActivity.this, OffloadingActivity.class);
                 ointent.putExtra(OffloadingActivity.flag,"1");
@@ -54,14 +37,7 @@ public class VisionListActivity extends AbstractListActivity {
             }
         });
         findViewById(R.id.vision_card_capture_click_area).setOnClickListener(v -> {
-            Python pyIn = Python.getInstance();
-            PyObject pymod = pyIn.getModule("gbclassifier");
-
-            PyObject mod = pymod.get("prediction");
-            PyObject val = mod.call(cpu_per,ram_per,bt,dbm);
-
-            res = val.toInt();
-
+            res = predictor.GradBoost(this);
             if(res == 1){
                 Intent ointent = new Intent(VisionListActivity.this, OffloadingActivity.class);
                 ointent.putExtra(OffloadingActivity.flag,"2");
@@ -76,14 +52,7 @@ public class VisionListActivity extends AbstractListActivity {
             }
         });
         findViewById(R.id.vision_card_load_click_area).setOnClickListener(v -> {
-            Python pyIn = Python.getInstance();
-            PyObject pymod = pyIn.getModule("gbclassifier");
-
-            PyObject mod = pymod.get("prediction");
-            PyObject val = mod.call(cpu_per,ram_per,bt,dbm);
-
-            res = val.toInt();
-
+            res = predictor.GradBoost(this);
             if(res == 1){
                 Intent ointent = new Intent(VisionListActivity.this, OffloadingActivity.class);
                 ointent.putExtra(OffloadingActivity.flag,"3");
@@ -99,7 +68,6 @@ public class VisionListActivity extends AbstractListActivity {
         });
 
     }
-
     @Override
     protected int getListContentLayoutRes() {
         return R.layout.vision_list_content;
