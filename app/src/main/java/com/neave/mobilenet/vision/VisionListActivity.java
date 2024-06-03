@@ -21,7 +21,7 @@ public class VisionListActivity extends AbstractListActivity {
         }
 
         findViewById(R.id.vision_card_preview_click_area).setOnClickListener(v -> {
-            res = predictor.GradBoost(this);
+            res = 0;
             if(res == 1){
                 Intent ointent = new Intent(VisionListActivity.this, OffloadingActivity.class);
                 ointent.putExtra(OffloadingActivity.flag,"1");

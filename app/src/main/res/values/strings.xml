@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Bring OFF</string>
-    <string name="main_title">Identify\nWith\nMobileNet</string>
+    <string name="main_title">Object Detection\nMobileNetv2</string>
     <string name="main_vision_button">Vision</string>
 
     <string name="live_image_classification_title">Live Classification</string>

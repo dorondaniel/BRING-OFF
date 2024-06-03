@@ -68,7 +68,7 @@
 
     <style name="TextAppearanceMainVision" parent="TextAppearance.AppCompat.Display1">
         <item name="android:textAllCaps">true</item>
-        <item name="android:textColor">@color/textColor</item>
+        <item name="android:textColor">@color/colorPrimaryDark</item>
         <item name="android:letterSpacing">0.2</item>
         <item name="android:fontFamily">sans-serif-light</item>
     </style>

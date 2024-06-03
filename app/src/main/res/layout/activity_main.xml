@@ -5,7 +5,7 @@
     style="@style/ActivityContentBase"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@mipmap/bg_neave">
+    android:background="@drawable/bg_main">
 
     <FrameLayout
         android:id="@+id/main_vision_click_view"
@@ -15,7 +15,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHeight_percent=".5"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent">
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_mainIntro">
 
         <TextView
             android:id="@+id/tv_visionClickable"
@@ -28,15 +29,18 @@
             android:textAppearance="@style/TextAppearanceMainVision" />
     </FrameLayout>
 
+
     <TextView
         android:id="@+id/tv_mainIntro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/main_title"
         android:textAlignment="center"
+        android:textStyle="bold"
         android:textAppearance="@style/TextAppearanceMainVision"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
